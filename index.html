@@ -9,10 +9,61 @@
     <script>
         let getComputerChoice = () => {
            let number = Math.floor(Math.random() * 3);
-           let list = ["Rock","Paper","Scissors"];
+           let list = ["rock","paper","pcissors"];
            let choice = list[number];
            return choice
         }
+
+        function play (playerSelection, computerSelection) {
+            playerSelection = prompt("Rock Paper or Scissors?").toLowerCase();
+            computerSelection = getComputerChoice()
+            
+            if (computerSelection === "rock") {
+
+                switch (playerSelection) {
+                    case "rock":
+                        console.log("It's a tie");
+                        break;
+                    case "paper":
+                        console.log("You Win! Paper beats Rock");
+                        break;
+                    case "scissors":
+                        console.log("You Lose! Rock beats Scissors")
+                }
+            }
+
+            else if (computerSelection === "paper" ) {
+
+                switch (playerSelection) {
+                    case "rock":
+                        console.log("You Lose! Paper beats Rock");
+                        break;
+                    case "paper":
+                        console.log("It's a tie");
+                        break;
+                    case "scissors":
+                        console.log("You Win! Scissors beats Paper")
+                }
+            }
+
+            else {
+
+                switch (playerSelection) {
+                    case "rock":
+                        console.log("You Win! Rock beats Scissors");
+                        break;
+                    case "paper":
+                        console.log("You Lose! Scissors beats Paper");
+                        break;
+                    case "scissors":
+                        console.log("It's a tie") 
+                }
+            } 
+            console.log(playerSelection)
+            console.log(computerSelection)  
+        }
+        console.log(play())
+        
     </script>
     
 </body>
