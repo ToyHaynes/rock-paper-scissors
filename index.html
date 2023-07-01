@@ -7,12 +7,16 @@
 </head>
 <body>
     <script>
+
         let getComputerChoice = () => {
            let number = Math.floor(Math.random() * 3);
            let list = ["rock","paper","pcissors"];
            let choice = list[number];
            return choice
         }
+
+        let playerScore = 0;
+        let computerScore = 0;
 
         function play (playerSelection, computerSelection) {
             playerSelection = prompt("Rock Paper or Scissors?").toLowerCase();
@@ -26,8 +30,10 @@
                         break;
                     case "paper":
                         console.log("You Win! Paper beats Rock");
+                        playerScore++;
                         break;
                     case "scissors":
+                        computerScore++; 
                         console.log("You Lose! Rock beats Scissors")
                 }
             }
@@ -36,12 +42,14 @@
 
                 switch (playerSelection) {
                     case "rock":
+                        computerScore++; 
                         console.log("You Lose! Paper beats Rock");
                         break;
                     case "paper":
                         console.log("It's a tie");
                         break;
                     case "scissors":
+                        playerScore++;
                         console.log("You Win! Scissors beats Paper")
                 }
             }
@@ -51,18 +59,27 @@
                 switch (playerSelection) {
                     case "rock":
                         console.log("You Win! Rock beats Scissors");
+                        playerScore ++;
                         break;
                     case "paper":
+                        computerScore++; 
                         console.log("You Lose! Scissors beats Paper");
                         break;
                     case "scissors":
                         console.log("It's a tie") 
                 }
             } 
-            console.log(playerSelection)
-            console.log(computerSelection)  
         }
-        console.log(play())
+
+        let game = () => {   
+            for (i=0; i< 5; i++) {
+                play();
+                console.log(playerScore);
+                console.log(computerScore)    
+            }
+        }
+
+        console.log(game())
         
     </script>
     
