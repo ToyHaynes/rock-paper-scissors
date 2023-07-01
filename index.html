@@ -18,10 +18,22 @@
         let playerScore = 0;
         let computerScore = 0;
 
+
         function play (playerSelection, computerSelection) {
-            playerSelection = prompt("Rock Paper or Scissors?").toLowerCase();
+            let isOn = true;
+            while (isOn) {
+                playerSelection = prompt("Rock Paper or Scissors?").toLowerCase();
+                    
+                if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+                    isOn = false;
+                }  
+                else {
+                    alert("Try again");
+                }
+            }
+
             computerSelection = getComputerChoice()
-            
+                    
             if (computerSelection === "rock") {
 
                 switch (playerSelection) {
@@ -68,15 +80,16 @@
                     case "scissors":
                         console.log("It's a tie") 
                 }
-            } 
-        }
-
-        let game = () => {   
-            for (i=0; i< 5; i++) {
-                play();
-                console.log(playerScore);
-                console.log(computerScore)    
             }
+        }  
+        
+
+            let game = () => {   
+                for (i=0; i< 5; i++) {
+                    play();
+                    console.log(playerScore);
+                    console.log(computerScore)    
+                }
         }
 
         console.log(game())
