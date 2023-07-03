@@ -11,24 +11,29 @@
         <div>rps pix</div>
     </div>
     <div class="buttons">
-        <button id="Rock">
-            <p>Rock</p>
-            <img class="img" src="img/Rocks.png" alt="Rock icons created by Freepik">
+        <button id="rock">
+            <p>rock</p>
+            <img class="img" src="img/rock.png" alt="rock icons created by Freepik">
         </button>
-        <button id="Paper">
-            <p>Paper</p>
-            <img class="img" src="img/toilet-Paper.png" alt="Cute icons created by Freepik - Flaticon">
+        <button id="paper">
+            <p>paper</p>
+            <img class="img" src="img/paper.png" alt="Cute icons created by Freepik - Flaticon">
         </button>
-        <button id="Scissors">
-            <p>Scissors</p>
-            <img class="img" src="img/crab.png" alt="Crab icons created by Freepik - Flaticon">
+        <button id="scissors">
+            <p>scissors</p>
+            <img class="img" src="img/scissors.png" alt="Crab icons created by Freepik - Flaticon">
         </button>
     </div>
+    <div class="results">Welcome to the war! Please choose 
+    </div>
+    <img class="computer">
+    <div class="score"></div>
+
     <script>
 
         let getComputerChoice = () => {
            let number = Math.floor(Math.random() * 3);
-           let list = ["Rock","Paper","Scissors"];
+           let list = ["rock","paper","scissors"];
            let choice = list[number];
            return choice
         }
@@ -36,35 +41,80 @@
         let playerScore = 0;
         let computerScore = 0;
 
+        const btns = document.querySelectorAll("button");
+        const result = document.querySelector(".results");
+        const score = document.querySelector(".score")
+        const comput = document.querySelector(".computer")
 
-        function play (playerSelection, computerSelection) {
-            computerSelection = getComputerChoice()
 
-            if (computerSelection == playerSelection) {
-                console.log("It's a tie");
+        function play (playerSelection) {
+            
+            const computerSelection = getComputerChoice();
 
-            }   else if ((computerSelection === "Rock" && playerSelection === "Paper")
-                    || (computerSelection === "Paper" && playerSelection === "Scissors") 
-                    || (computerSelection === "Scissors" && playerSelection === "Rock")) {
+            comput.setAttribute("src", `img/${computerSelection}.png`);
 
-                        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-                        playerScore++;        
+            if (computerSelection === playerSelection) {
+                result.textContent = "It's a tie";
+
+            }   else if ((computerSelection === "rock" && playerSelection === "paper")
+                    || (computerSelection === "paper" && playerSelection === "scissors") 
+                    || (computerSelection === "scissors" && playerSelection === "rock")) {
+                        playerScore++
+                        result.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;        
             
             }   else {
-                        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
                         computerScore++;
+                        result.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
             }
+
+            score.textContent = `You: ${playerScore}\nComputer: ${computerScore}`;
         }
             
-
-        const btns = document.querySelectorAll("button");
-
+        function endGame() {
+    
             btns.forEach((btn) => {
-                btn.addEventListener("click", function() {
+                btn.disabled = true });
+                
+            if (window.confirm("Play again?")) {               
+                resetGame(); 
+                return;
+            } 
+            else {
+                return;
+            }
+        }
+        
+        function resetGame() {
+            
+            playerScore = 0;
+            computerScore = 0;
+            result.textContent = "";
+            score.textContent = "Let's Go!"
+            btns.forEach((btn) => {
+                btn.disabled = false;
+            });
+        }
+
+        btns.forEach((btn) => {
+            btn.addEventListener("click", function() {
+             
                 playerSelection = btn.getAttribute("id");
-                play(playerSelection)
-                })
+                play(playerSelection);       
+
+                if (computerScore === 5) {
+                result.textContent = "You lost :(";
+                setTimeout(() => {
+                    endGame();
+                }, 100);
+                } else if (playerScore === 5) {
+                result.textContent = "You win :)";
+                setTimeout(() => {
+                    endGame();
+                }, 100);
+                }
+
             })
+        })
            
     </script>
     

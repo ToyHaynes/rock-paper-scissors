@@ -1,6 +1,9 @@
-const btns = document.querySelectorAll("button");
+let game = () => {   
+    for (i=0; i< 5; i++) {
+        play();
+        console.log(playerScore);
+        console.log(computerScore)    
+    }
+}
 
-btns.forEach((btn) => {
-    btn.addEventListener("click", play())
-    console.log("click")
-})
+console.log(game())
