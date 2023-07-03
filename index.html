@@ -6,6 +6,18 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="buttons">
+        <button id="rock">
+            <p>Rock</p>
+            <a href="https://www.flaticon.com/free-icons/rock" title="rock icons">Rock icons created by Freepik - Flaticon</a>
+        </button>
+        <button id="paper">
+            <p>Paper</p>
+        </button>
+        <button id="scissors">
+            <p>Scissors</p>
+        </button>
+    </div>
     <script>
 
         let getComputerChoice = () => {
@@ -20,18 +32,10 @@
 
 
         function play (playerSelection, computerSelection) {
-            let isOn = true;
-
-            while (isOn) {
-                playerSelection = prompt("Rock Paper or Scissors?").toLowerCase();
+            
+        
                     
-                if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
-                    isOn = false;
-                }  
-                else {
-                    alert("Try again");
-                }
-            }
+          
 
             computerSelection = getComputerChoice()
 
