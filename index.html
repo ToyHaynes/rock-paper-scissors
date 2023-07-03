@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="header">
-        <div>rps pix</div>
+        <div><span style="color: #22A699;">r</span><span style="color: #F2BE22;">p</span><span style="color: #F24C3D;">s</span></div>
     </div>
         <div class="mid">
             <div class="buttons">
@@ -25,15 +25,14 @@
                     <img class="img" src="img/scissors.png" alt="Crab icons created by Freepik - Flaticon">
                 </button>
             </div>
-            <div class="results">Welcome to the war! Please choose 
-            </div>
+            <div class="results">Welcome to the war!</div>
             <div class="computer">
                 <img class="enemy">
             </div>      
-            <div class="score"></div>
-           
+            <div class="score">Please choose </div>
+        <div class="footer">Mindown © 2023</div>
         </div> 
-  
+        
     <script>
         let getComputerChoice = () => {
            let number = Math.floor(Math.random() * 3);
@@ -75,6 +74,13 @@
                         result.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
             }
 
+            if (computerScore > playerScore) {
+                score.style.color = "#F24C3D"
+            } else if (playerScore > computerScore) {
+                score.style.color = "#22A699"
+            }else {
+                score.style.color = "#F2BE22"
+            }
             score.textContent = `You: ${playerScore}\nComputer: ${computerScore}`;
         }
             
@@ -97,11 +103,12 @@
             playerScore = 0;
             computerScore = 0;
             result.textContent = "";
-            result.style.color ="black"
+            result.style.color ="black";
 
-            comput.hidden = true
+            comput.hidden = true;
+            score.style.color ="#black";
 
-            score.textContent = "Let's Go!"
+            score.textContent = "Let's Go!";
         
             btns.forEach((btn) => {
                 btn.disabled = false;
@@ -109,7 +116,7 @@
         }
 
         btns.forEach((btn) => {
-            comput.hidden = true
+            comput.hidden = true;
             btn.addEventListener("click", function() {
              
                 playerSelection = btn.getAttribute("id");

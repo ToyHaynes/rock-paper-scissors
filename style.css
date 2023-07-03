@@ -6,16 +6,14 @@
 body {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 0;
-    padding: 1em;
 }
 
 .header {
-    margin: -0.5em;
-    padding: 1em 20em;
+    margin: 0 ;
     text-align: center;
     font-size: 36px;
+    font-weight: 500;
     border: 1px solid black;
     background-color: rgb(255, 255, 255);
 }
@@ -29,7 +27,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    margin: 3rem;
+    margin: 2rem;
 }
 
 button > .img {
@@ -52,6 +50,7 @@ button {
 button:hover {
     transform: scale(1.2);
     background-color: rgba(255, 228, 196, 0);
+    color:#F2BE22 ;
 }
 
 button > p {
@@ -80,12 +79,14 @@ button > p {
 .results {
     text-align: center;
     font-size: 18px;
-    padding: 0.2rem;
-    margin: 0;
+    padding: 0.2rem 4rem;
+    margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.35);
     border-radius: 9px;
     color: rgba(0, 0, 0, 0.83);
     box-shadow: 1px 2px 3px;
+    max-width: fit-content;
+    
 }
 
 .score {
@@ -100,5 +101,20 @@ button > p {
     border: 2px solid rgb(0, 0, 0);
     border-right: 0;
     border-left: 0;
+    border-top: 0;
     font-size: 16px;
+    box-shadow: 0 3px 10px;
+    border-radius: 6px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    background-color: #22A699;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    color: #F2BE22;
 }
