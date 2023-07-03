@@ -60,15 +60,18 @@
 
             if (computerSelection === playerSelection) {
                 result.textContent = "It's a tie";
+                result.style.color = "#F2BE22"
 
             }   else if ((computerSelection === "rock" && playerSelection === "paper")
-                    || (computerSelection === "paper" && playerSelection === "scissors") 
+                    || (computerSelection === "paper " && playerSelection === "scissors") 
                     || (computerSelection === "scissors" && playerSelection === "rock")) {
                         playerScore++
+                        result.style.color = "#22A699"
                         result.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;        
             
             }   else {
                         computerScore++;
+                        result.style.color = "#F24C3D"
                         result.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
             }
 
@@ -94,6 +97,7 @@
             playerScore = 0;
             computerScore = 0;
             result.textContent = "";
+            result.style.color ="black"
 
             comput.hidden = true
 
@@ -105,6 +109,7 @@
         }
 
         btns.forEach((btn) => {
+            comput.hidden = true
             btn.addEventListener("click", function() {
              
                 playerSelection = btn.getAttribute("id");
