@@ -10,7 +10,7 @@
 
         let getComputerChoice = () => {
            let number = Math.floor(Math.random() * 3);
-           let list = ["rock","paper","pcissors"];
+           let list = ["rock","paper","scissors"];
            let choice = list[number];
            return choice
         }
@@ -21,6 +21,7 @@
 
         function play (playerSelection, computerSelection) {
             let isOn = true;
+
             while (isOn) {
                 playerSelection = prompt("Rock Paper or Scissors?").toLowerCase();
                     
@@ -33,64 +34,32 @@
             }
 
             computerSelection = getComputerChoice()
-                    
-            if (computerSelection === "rock") {
 
-                switch (playerSelection) {
-                    case "rock":
-                        console.log("It's a tie");
-                        break;
-                    case "paper":
-                        console.log("You Win! Paper beats Rock");
-                        playerScore++;
-                        break;
-                    case "scissors":
-                        computerScore++; 
-                        console.log("You Lose! Rock beats Scissors")
-                }
+            if (computerSelection == playerSelection) {
+                console.log("It's a tie");
+
+            }   else if ((computerSelection === "rock" && playerSelection === "paper")
+                    || (computerSelection === "paper" && playerSelection === "scissors") 
+                    || (computerSelection === "scissors" && playerSelection === "rock")) {
+
+                        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+                        playerScore++;        
+            
+            }   else {
+                        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+                        computerScore++;
             }
-
-            else if (computerSelection === "paper" ) {
-
-                switch (playerSelection) {
-                    case "rock":
-                        computerScore++; 
-                        console.log("You Lose! Paper beats Rock");
-                        break;
-                    case "paper":
-                        console.log("It's a tie");
-                        break;
-                    case "scissors":
-                        playerScore++;
-                        console.log("You Win! Scissors beats Paper")
-                }
-            }
-
-            else {
-
-                switch (playerSelection) {
-                    case "rock":
-                        console.log("You Win! Rock beats Scissors");
-                        playerScore ++;
-                        break;
-                    case "paper":
-                        computerScore++; 
-                        console.log("You Lose! Scissors beats Paper");
-                        break;
-                    case "scissors":
-                        console.log("It's a tie") 
-                }
-            }
-        }  
-        
-
-            let game = () => {   
-                for (i=0; i< 5; i++) {
-                    play();
-                    console.log(playerScore);
-                    console.log(computerScore)    
-                }
         }
+                 
+
+        let game = () => {   
+            for (i=0; i< 5; i++) {
+                play();
+                console.log(playerScore);
+                console.log(computerScore)    
+            }
+        }
+        
 
         console.log(game())
         
