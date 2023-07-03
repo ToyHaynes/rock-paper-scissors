@@ -1,67 +1,73 @@
 * {
     font-family: 'Courier New', Courier, monospace;
 }
+
 body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    
-
+    padding: 1em;
 }
 
 .header {
     margin: 0;
-    padding: 1em 8em;
+    padding: 1em;
     text-align: center;
-    font-size: 46px;
-    border: 1px solid black
-
+    font-size: 36px;
+    border: 1px solid black;
 }
 
 .buttons {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2em;
-    margin: 5em;
-    min-width: 100px ;
+    gap: 2rem;
+    margin: 3rem;
 }
 
 button > .img {
-    max-width: 50px ; 
-    margin-bottom: 3px;    
+    max-width: 50px;
+    margin-bottom: 3px;
 }
 
 button {
-    width: 120px;
+    min-width: 90px;
+    min-height: 90px;
     background-color: rgba(255, 255, 255, 0.994);
     border-radius: 9px;
-    box-shadow: 3px 5px 10px ;
+    box-shadow: 3px 5px 10px;
+    font-size: 14px;
 }
 
-.computer {
-    max-width: 75px;
+
+.computer{
     display: flex;
     align-self: center;
-    margin: 5em;
+    margin: 3rem 0 1rem 0 
 }
 
+.enemy {
+    max-width: 100px;
+}
 
 .results {
     text-align: center;
-  
+    font-size: 18px;
+    padding: 0 ;
+    margin: 0;
 }
 
 .score {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 150px;
+    max-width: 200px;
     margin: 0 auto;
-    padding: 2em;
+    padding: 1rem;
     white-space: pre;
     text-align: center;
     border: 2px solid black;
     border-right: 0;
     border-left: 0;
-  }
+    font-size: 16px;
+}

@@ -26,11 +26,12 @@
     </div>
     <div class="results">Welcome to the war! Please choose 
     </div>
-    <img class="computer">
+    <div class="computer">
+        <img class="enemy">
+    </div>      
     <div class="score"></div>
 
     <script>
-
         let getComputerChoice = () => {
            let number = Math.floor(Math.random() * 3);
            let list = ["rock","paper","scissors"];
@@ -44,14 +45,15 @@
         const btns = document.querySelectorAll("button");
         const result = document.querySelector(".results");
         const score = document.querySelector(".score")
-        const comput = document.querySelector(".computer")
-
+        const comput = document.querySelector(".enemy")
 
         function play (playerSelection) {
             
             const computerSelection = getComputerChoice();
 
             comput.setAttribute("src", `img/${computerSelection}.png`);
+
+            comput.hidden = false;
 
             if (computerSelection === playerSelection) {
                 result.textContent = "It's a tie";
@@ -89,7 +91,11 @@
             playerScore = 0;
             computerScore = 0;
             result.textContent = "";
+
+            comput.hidden = true
+
             score.textContent = "Let's Go!"
+        
             btns.forEach((btn) => {
                 btn.disabled = false;
             });
