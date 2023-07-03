@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css"
 </head>
 <body>
+    <div class="header">
+        <div>rps pix</div>
+    </div>
     <div class="buttons">
-        <button id="rock">
+        <button id="Rock">
             <p>Rock</p>
-            <a href="https://www.flaticon.com/free-icons/rock" title="rock icons">Rock icons created by Freepik - Flaticon</a>
+            <img class="img" src="img/Rocks.png" alt="Rock icons created by Freepik">
         </button>
-        <button id="paper">
+        <button id="Paper">
             <p>Paper</p>
+            <img class="img" src="img/toilet-Paper.png" alt="Cute icons created by Freepik - Flaticon">
         </button>
-        <button id="scissors">
+        <button id="Scissors">
             <p>Scissors</p>
+            <img class="img" src="img/crab.png" alt="Crab icons created by Freepik - Flaticon">
         </button>
     </div>
     <script>
 
         let getComputerChoice = () => {
            let number = Math.floor(Math.random() * 3);
-           let list = ["rock","paper","scissors"];
+           let list = ["Rock","Paper","Scissors"];
            let choice = list[number];
            return choice
         }
@@ -32,19 +38,14 @@
 
 
         function play (playerSelection, computerSelection) {
-            
-        
-                    
-          
-
             computerSelection = getComputerChoice()
 
             if (computerSelection == playerSelection) {
                 console.log("It's a tie");
 
-            }   else if ((computerSelection === "rock" && playerSelection === "paper")
-                    || (computerSelection === "paper" && playerSelection === "scissors") 
-                    || (computerSelection === "scissors" && playerSelection === "rock")) {
+            }   else if ((computerSelection === "Rock" && playerSelection === "Paper")
+                    || (computerSelection === "Paper" && playerSelection === "Scissors") 
+                    || (computerSelection === "Scissors" && playerSelection === "Rock")) {
 
                         console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
                         playerScore++;        
@@ -54,19 +55,17 @@
                         computerScore++;
             }
         }
-                 
+            
 
-        let game = () => {   
-            for (i=0; i< 5; i++) {
-                play();
-                console.log(playerScore);
-                console.log(computerScore)    
-            }
-        }
-        
+        const btns = document.querySelectorAll("button");
 
-        console.log(game())
-        
+            btns.forEach((btn) => {
+                btn.addEventListener("click", function() {
+                playerSelection = btn.getAttribute("id");
+                play(playerSelection)
+                })
+            })
+           
     </script>
     
 </body>

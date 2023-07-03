@@ -1,0 +1,41 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    
+
+}
+
+.header {
+    margin: 0;
+    padding: 1em 8em;
+    
+    text-align: center;
+    font-size: 46px;
+    border: 1px solid black
+
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    margin: 5em
+}
+
+button > .img {
+    max-width: 50px ; 
+    margin-bottom: 3px; 
+    
+}
+
+button {
+    width: 120px;
+    background-color: rgba(255, 255, 255, 0.994);
+    border-radius: 9px;
+    box-shadow: 3px 5px 10px ;
+}
